@@ -1,8 +1,8 @@
 define([
   "backbone",
   "app",
-  "modules/layout/header",
-  "modules/layout/body"
+  "views/layout/header",
+  "views/layout/body"
 ],
 function(Backbone, app, Header, Body) {
   var Layout = Backbone.View.extend({
@@ -19,11 +19,11 @@ function(Backbone, app, Header, Body) {
     },
 
     renderSubviews: function() {
-      this.insertView(this.views.header);
-      this.insertView(this.views.body);
+      this.$el.find('#header').html(this.views.header.render().el);
+      this.$el.find('#body').html(this.views.body.render().el);
     },
 
-    beforeRender:function() {
+    afterRender:function() {
       this.renderSubviews();
     },
 

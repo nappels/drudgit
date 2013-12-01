@@ -3,17 +3,27 @@ define(function(require, exports, module) {
 
   // External dependencies.
   var Backbone = require("backbone");
-  var Layout = require("modules/layout/baseView");
+  var Layout = require("views/layout/baseView");
+  var SignIn = require("views/auth/signIn");
 
   // Defining the application router.
   module.exports = Backbone.Router.extend({
     routes: {
-      "": "index"
+      "": "index",
+      "signin": "signIn"
+    },
+
+    initialize: function() {
+      var layout = new Layout();
+      layout.render();
     },
 
     index: function() {
-      var layout = new Layout();
-      layout.render();
+      
+    },
+
+    signIn: function() {
+      new SignIn().render();
     }
   });
 });
