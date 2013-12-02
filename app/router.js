@@ -1,16 +1,26 @@
-define(function(require, exports, module) {
-  "use strict";
-
-  // External dependencies.
-  var Backbone = require("backbone");
-  var Layout = require("views/layout/baseView");
-  var SignIn = require("views/auth/signIn");
+define([
+  "backbone",
+  "views/layout/baseView",
+  "views/auth/signIn",
+  "models/signIn",
+  "views/auth/signUp",
+  "models/signUp"
+],
+function(
+  Backbone,
+  Layout,
+  SignIn,
+  SignInModel,
+  SignUp,
+  SignUpModel
+) {
 
   // Defining the application router.
-  module.exports = Backbone.Router.extend({
+  var Router = Backbone.Router.extend({
     routes: {
       "": "index",
-      "signin": "signIn"
+      "signin": "signIn",
+      "signup": "signup"
     },
 
     initialize: function() {
@@ -23,7 +33,15 @@ define(function(require, exports, module) {
     },
 
     signIn: function() {
-      new SignIn().render();
+      var signInModel = new SignInModel();
+      new SignIn({model:signInModel}).render();
+    },
+
+    signup: function() {
+      var signUpModel = new SignUpModel();
+      new SignUp({model:signUpModel}).render();
     }
   });
+
+  return Router;
 });

@@ -12,6 +12,10 @@ function(Backbone, app) {
       "click": "ajax"
     },
 
+    initialize:function() {
+      this.model.fetch({dataType: "jsonp"});
+    },
+
     ajax: function() {
       var data = {
 
@@ -19,11 +23,8 @@ function(Backbone, app) {
       $.ajax({
 
       });
-    },
-
-    initialize:function() {
-      console.log('signIn');
     }
+
   });
   return SignIn;
 });

@@ -42,7 +42,7 @@ define(function(require, exports, module) {
   // The root path to run the application through.
   app.root = "/";
 
-  
+  app.baseUrl = 'http://localhost:3000';
   
 
 
