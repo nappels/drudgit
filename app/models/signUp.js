@@ -5,13 +5,13 @@ define([
 function(Backbone, app) {
   var SignIn = Backbone.Model.extend({
 
-    url: app.baseUrl + '/users.json',
+    url: '/api/users.json',
     paramRoot: 'user',
 
     defaults: {
-      "email": "",
-      "password": "",
-      "password_confirmation": ""
+      "email": "noah.appel@gmail.com",
+      "password": "123123123",
+      "password_confirmation": "123123123"
     }
 
   });

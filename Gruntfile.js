@@ -8,6 +8,25 @@ module.exports = function(grunt) {
     // Run your source code through JSHint's defaults.
     jshint: ["app/**/*.js"],
 
+    stylus: {
+      compile: {
+        options: { 
+          paths: ["assets/css"],
+          import: [ 'nib' ]
+        },
+        files: {
+          'assets/css/index.css': 'assets/css/index.styl'
+        }
+      }
+    },
+
+    watch: {
+      scripts: {
+        files: ['./assets/css/index.styl'],
+        tasks: ['stylus']
+      },
+    },
+
     // This task uses James Burke's excellent r.js AMD builder to take all
     // modules and concatenate them into a single file.
     requirejs: {
@@ -71,27 +90,29 @@ module.exports = function(grunt) {
       }
     },
 
-    server: {
-      options: {
-        host: "0.0.0.0",
-        port: 4000
-      },
-
-      development: {},
-
-      release: {
+    // connect: {
+      server: {
         options: {
-          prefix: "dist"
+          host: "0.0.0.0",
+          port: 4000
+        },
+
+        development: {},
+
+        release: {
+          options: {
+            prefix: "dist"
+          }
+        },
+
+        test: {
+          options: {
+            forever: false,
+            port: 8001
+          }
         }
       },
-
-      test: {
-        options: {
-          forever: false,
-          port: 8001
-        }
-      }
-    },
+    // },
 
     processhtml: {
       release: {
@@ -199,6 +220,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-compress");
+  grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks("grunt-contrib-stylus");
+  grunt.loadNpmTasks("grunt-contrib-connect");
 
   // Third-party tasks.
   grunt.loadNpmTasks("grunt-karma");
@@ -219,5 +243,11 @@ module.exports = function(grunt) {
     "requirejs",
     "styles",
     "cssmin",
+  ]);
+
+  grunt.registerTask("start", [
+    "jshint",
+    "server",
+    "watch"
   ]);
 };

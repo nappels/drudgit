@@ -8,23 +8,9 @@ function(Backbone, app) {
     template: "signIn",
     el:"#body",
 
-    events: {
-      "click": "ajax"
-    },
-
     initialize:function() {
-      this.model.fetch({dataType: "jsonp"});
-    },
-
-    ajax: function() {
-      var data = {
-
-      };
-      $.ajax({
-
-      });
+      this.model.fetch();
     }
-
   });
   return SignIn;
 });

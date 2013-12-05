@@ -5,7 +5,7 @@ define([
 function(Backbone, app) {
   var SignIn = Backbone.Model.extend({
 
-    url: app.baseUrl + '/users/sign_in.json',
+    url: '/api/users/sign_in',
     paramRoot: 'user',
 
     defaults: {

@@ -30,7 +30,7 @@ function(Backbone, app, Header, Body) {
     serialize: function() {
       return {
         user: "noah"
-      }
+      };
     }
   });
   return Layout;

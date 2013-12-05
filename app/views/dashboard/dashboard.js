@@ -3,13 +3,13 @@ define([
   "app"
 ],
 function(Backbone, app) {
-	
-  var Header = Backbone.View.extend({
-    template: "header",
-    tagName: "header",
+  
+  var Dashboard = Backbone.View.extend({
+    template: "dashboard",
+    el:'#body',
 
     initialize:function() {
-      console.log('header');
+      console.log('dash');
     },
     serialize: function() {
       var context = context || {};
@@ -17,5 +17,5 @@ function(Backbone, app) {
 
     }
   });
-  return Header;
+  return Dashboard;
 });

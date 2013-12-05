@@ -13,8 +13,8 @@ define(function(require, exports, module) {
 
   //Manage views with backbone.layoutmanager
   Backbone.Layout.configure({ 
-  	manage: true,
-  	fetchTemplate: function(path) {
+    manage: true,
+    fetchTemplate: function(path) {
       // Append the file extension.
       path = templatePath + path + ".html";
       if (!JST[path]) {
@@ -42,7 +42,7 @@ define(function(require, exports, module) {
   // The root path to run the application through.
   app.root = "/";
 
-  app.baseUrl = 'http://localhost:3000';
+  // app.baseUrl = 'http://localhost:3000';
   
 
 

@@ -4,7 +4,8 @@ define([
   "views/auth/signIn",
   "models/signIn",
   "views/auth/signUp",
-  "models/signUp"
+  "models/signUp",
+  "views/dashboard/dashboard"
 ],
 function(
   Backbone,
@@ -12,15 +13,17 @@ function(
   SignIn,
   SignInModel,
   SignUp,
-  SignUpModel
+  SignUpModel,
+  Dashboard
 ) {
 
   // Defining the application router.
   var Router = Backbone.Router.extend({
     routes: {
       "": "index",
-      "signin": "signIn",
-      "signup": "signup"
+      "signIn": "signIn",
+      "signUp": "signUp",
+      "dashboard": "dashboard"
     },
 
     initialize: function() {
@@ -37,9 +40,13 @@ function(
       new SignIn({model:signInModel}).render();
     },
 
-    signup: function() {
+    signUp: function() {
       var signUpModel = new SignUpModel();
       new SignUp({model:signUpModel}).render();
+    },
+
+    dashboard: function() {
+      new Dashboard().render();
     }
   });
 
