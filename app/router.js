@@ -5,7 +5,12 @@ define([
   "models/signIn",
   "views/auth/signUp",
   "models/signUp",
-  "views/dashboard/dashboard"
+  "views/dashboard/dashboard",
+  "models/dashboard",
+  "views/clients/clientsLayout",
+  "collections/clients",
+  "views/clients/newClient",
+  "models/client"
 ],
 function(
   Backbone,
@@ -14,7 +19,12 @@ function(
   SignInModel,
   SignUp,
   SignUpModel,
-  Dashboard
+  Dashboard,
+  DashboardModel,
+  Clients,
+  ClientsCollection,
+  NewClient,
+  ClientModel
 ) {
 
   // Defining the application router.
@@ -23,7 +33,9 @@ function(
       "": "index",
       "signIn": "signIn",
       "signUp": "signUp",
-      "dashboard": "dashboard"
+      "dashboard": "dashboard",
+      "clients": "clients",
+      "addClient": "addClient"
     },
 
     initialize: function() {
@@ -46,7 +58,17 @@ function(
     },
 
     dashboard: function() {
-      new Dashboard().render();
+      var dashModel = new DashboardModel();
+      new Dashboard({model: dashModel}).render();
+    },
+
+    clients: function() {
+      new Clients().render();
+    },
+
+    addClient: function() {
+      var clientModel = new ClientModel();
+      new NewClient({model: clientModel}).render();
     }
   });
 

@@ -5,11 +5,7 @@ define([
 function(Backbone, app) {
 	
   var Body = Backbone.View.extend({
-    template: "body",
-
-    initialize:function() {
-      console.log('body');
-    }
+    template: "body"
   });
   return Body;
 });

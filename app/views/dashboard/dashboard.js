@@ -1,19 +1,48 @@
 define([
   "backbone",
-  "app"
+  "app",
+  "collections/clients"
 ],
-function(Backbone, app) {
+function(Backbone, app, Clients) {
   
   var Dashboard = Backbone.View.extend({
     template: "dashboard",
     el:'#body',
 
-    initialize:function() {
-      console.log('dash');
+    events: {
+      // "click .add client": "addClient",
+      // "click .add project": "addProject"
     },
+
+    initialize:function(options) {
+      this.clientsColl = new Clients();
+
+      this.listenTo(this.model, "change", this.render);
+
+      this.modelSet();
+    },
+
+    modelSet: function(resp) {
+      var self = this;
+
+      var modelObj = {};
+      modelObj.clients = {};
+      modelObj.projects = {};
+
+      this.clientsColl.fetch({
+        success: function(resp) {
+          modelObj.clients.total = resp.length;
+
+          self.model.set(modelObj);
+        }
+      });
+
+    
+    },
+
     serialize: function() {
-      var context = context || {};
-      // context.header = app.headerTitle;
+      var context = this.model.toJSON();
+      return context;
 
     }
   });

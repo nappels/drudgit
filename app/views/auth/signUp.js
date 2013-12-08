@@ -9,11 +9,36 @@ function(Backbone, app) {
     el:"#body",
 
     events: {
+      "submit #signUp": "signUp"
     },
 
     initialize:function() {
-      this.model.fetch({type: "POST"});
-      // console.log(this.model.toJSON());
+      
+    },
+
+    signUp: function() {
+      var email = this.$('.email').val();
+      var password = this.$('.password').val();
+      var passwordConfirmation = this.$('.passwordConfirmation').val();
+
+      var data = {
+        email: email,
+        password: password,
+        password_confirmation: passwordConfirmation
+      };
+
+      this.model.fetch({
+        type: "POST", 
+        user: data,
+        success: function(resp) {
+          app.router.navigate('dashboard', {trigger: true});
+          app.sessionActive = true;
+        },
+        error: function(model, err) {
+        }
+      });
+
+      return false;
     }
 
   });
