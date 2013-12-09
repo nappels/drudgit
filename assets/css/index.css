@@ -2,13 +2,13 @@
 @font-face{font-family:'HelveticaNeueBold';src:url("../fonts/HelveticaNeueLTStd-Bd.eot");src:local('☺'),url("../fonts/HelveticaNeueLTStd-Bd.ttf") format('truetype');font-weight:normal;font-style:normal}
 @font-face{font-family:'ProximaNova';src:url("../fonts/ProximaNova-Regular.eot");src:local('☺'),url("../fonts/ProximaNova-Regular.ttf") format('truetype');font-weight:normal;font-style:normal}
 @font-face{font-family:'ProximaNovaBold';src:url("../fonts/ProximaNova-Bold.eot");src:local('☺'),url("../fonts/ProximaNova-Bold.ttf") format('truetype');font-weight:normal;font-style:normal}
-html,body{margin:0;padding:0;font:100% 'HelveticaNeue',Helvetica;background:#fcfcfc}
+html,body{margin:0;padding:0;font:100% 'HelveticaNeue',Helvetica;background:#f4f4f4}
 h2,.h2{font-size:1.8em;margin:10px 0 8px;font-family:'ProximaNovaBold';}
 h2.float,.h2.float{float:left}
 a{text-decoration:none}
 header{width:100%;}
 header .header{font-size:1.2em;padding:10px 0;background:#2790b0;text-align:center;color:#fcfcfc}
-header .nav{padding:15px 0;margin-bottom:10px;-webkit-box-shadow:0 0 2px #ccc;box-shadow:0 0 2px #ccc;position:relative;background:#fff;overflow:hidden;}
+header .nav{padding:15px 0;position:relative;background:#fff;overflow:hidden;}
 header .nav .mainNav{float:left}
 header .nav .item{display:inline-block;margin-left:80px;font-size:1.2em;color:#666;cursor:pointer;}
 header .nav .item a{color:#666}
@@ -17,6 +17,9 @@ header .nav .item:first-child{margin-left:35px}
 header .nav .hamburger{float:right;margin:6px 20px 0 0;}
 header .nav .hamburger .bun{float:left;margin-right:3px;height:7px;width:7px;-webkit-border-radius:7px;border-radius:7px;border:2px solid #2790b0}
 header .nav .placeHolder{display:none;position:relative;top:11px;margin-left:61px;width:20px;height:20px;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);background:#fcfcfc;-webkit-box-shadow:inset 0 0 1px #ccc;box-shadow:inset 0 0 1px #ccc}
+#body{float:left;width:65%}
+#aside{float:right;width:200px;background:#fff;padding-left:20px;color:#333;font-size:.9em;}
+#aside .userPic{height:50px;width:50px;-webkit-border-radius:5px;border-radius:5px}
 .page{width:98%;margin:0 auto;}
 .page .section{float:left;width:100%;margin:20px 0}
 .dashBox{font-size:1.8em;float:left;padding:37px 51px;cursor:pointer;color:#333;text-align:center;font-family:'ProximaNova';-webkit-border-radius:2px;border-radius:2px;}
