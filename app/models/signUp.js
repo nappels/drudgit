@@ -9,19 +9,21 @@ function(Backbone, app) {
     paramRoot: 'user',
 
     defaults: {
-      "email": "",
-      "password": "",
-      "password_confirmation": ""
-    },
-
-    fetch: function(options) {
-      options = options || {};
-      options.data = options.data || {};
-      _.extend(options.data,{
-        user: options.user
-      });
-      Backbone.Model.prototype.fetch.call(this, options);
+      user: {
+        email: "",
+        password: "",
+        password_confirmation: ""  
+      }
     }
+
+    // fetch: function(options) {
+    //   options = options || {};
+    //   options.data = options.data || {};
+    //   _.extend(options.data,{
+    //     user: options.user
+    //   });
+    //   Backbone.Model.prototype.fetch.call(this, options);
+    // }
 
     // toJSON: function() {
     //   var userObj = {

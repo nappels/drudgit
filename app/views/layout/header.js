@@ -14,10 +14,12 @@ function(Backbone, app, Nav) {
     },
 
     initialize:function() {
-      console.log('header');
+      console.log();
     },
     renderSubviews: function() {
-      this.$el.find('.navWrapper').html(this.views.nav.render().el);
+      if (app.session.get('active')) {
+        this.$el.find('.navWrapper').html(this.views.nav.render().el);
+      }
     },
     afterRender: function() {
       this.renderSubviews();

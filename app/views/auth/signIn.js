@@ -13,39 +13,34 @@ function(Backbone, app) {
     },
 
     initialize:function() {
-      // this.model.fetch();
+      this.listenTo(app.session, "change", this.render);
     },
 
     signIn: function() {
       var self = this;
-      var user = {};
-      user.email = $('.email').val();
-      user.password = $('.password').val();
-      // user.authenticity_token = '0vApiT/3GApr6Xe/mPfsW57oMs+aL/r3aw2CpTMnM4o=';
-
-      this.model.set(user);
-
-      // console.log(user);
-
-      // this.model.save(null,{
-      //   success: function(resp) {
-      //     console.log(resp);
-      //   },
-      //   error: function() {
-      //     console.log('error');
-      //   }
-      // });
-
-      this.model.fetch({
-        user: user,
-        type: "POST",
-        success: function(resp) {
-          console.log(resp)
-          // self.model.trigger("authentication:logged_in");
-          // app.router.navigate('dashboard', {trigger: true});
-          // app.sessionActive = true;
+      var data = {
+        user: {
+          email: $('.email').val(),
+          password: $('.password').val(),
+          remember_me: "0",
         },
-        error: function(model, err) {
+        commit: "Sign in"
+      };
+
+      this.model.set(data);
+
+      this.model.save(null,{
+        success: function(resp) {
+          var session = {
+            userId: resp.id,
+            active: true
+          };
+          app.session.set(session);
+          app.tempStorage.set('session', session);
+          app.router.navigate("dashboard", {trigger: true});
+        },
+        error: function() {
+          console.log('error');
         }
       });
       return false;

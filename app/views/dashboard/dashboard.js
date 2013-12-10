@@ -10,14 +10,18 @@ function(Backbone, app, Clients) {
     el:'#body',
 
     events: {
-      // "click .add client": "addClient",
-      // "click .add project": "addProject"
+      "click .add.client": "addClient"
     },
 
     initialize:function(options) {
       this.clientsColl = new Clients();
 
       this.listenTo(this.model, "change", this.render);
+      this.listenTo(app.session, "change", this.render);
+
+      if (!app.session.get('active')) {
+        app.router.navigate('signIn', {trigger: true});
+      }
 
       this.modelSet();
     },
@@ -36,8 +40,10 @@ function(Backbone, app, Clients) {
           self.model.set(modelObj);
         }
       });
+    },
 
-    
+    addClient: function() {
+      app.router.navigate('addClient', {trigger: true});
     },
 
     serialize: function() {

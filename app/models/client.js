@@ -10,7 +10,8 @@ function(Backbone, app) {
       name: "",
       email:"",
       phone: "",
-      notes: ""
+      notes: "",
+      user_id: ""
     }
   });
   return Client;

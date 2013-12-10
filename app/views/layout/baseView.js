@@ -17,15 +17,18 @@ function(Backbone, app, Header, Body, Aside, User) {
     },
 
     initialize: function() {
-      console.log('layout');
+      this.render();
+      this.listenTo(app.session, "change", this.render);
+      console.log(Backbone.history.fragment);
     },
 
     renderSubviews: function() {
-      var userModel = new User();
-      console.log(userModel)
-      var aside = new Aside({model: userModel});
+      if (app.session.get('active')) {
+        var userModel = new User();
+        var aside = new Aside({model: userModel});
 
-      this.$el.find('#aside').html(aside.render().el);
+        this.$el.find('#aside').html(aside.render().el);
+      }
 
       this.$el.find('#header').html(this.views.header.render().el);
       this.$el.find('#body').html(this.views.body.render().el);
@@ -36,9 +39,12 @@ function(Backbone, app, Header, Body, Aside, User) {
     },
 
     serialize: function() {
-      return {
-        user: "noah"
-      };
+      var context = {};
+      context.session = false;
+      if (app.session.get('active')) {
+        context.session = true;
+      }
+      return context;
     }
   });
   return Layout;

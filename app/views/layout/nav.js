@@ -5,11 +5,7 @@ define([
 function(Backbone, app) {
   
   var Nav = Backbone.View.extend({
-    template: "nav",
-
-    initialize:function() {
-      console.log('nav');
-    }
+    template: "nav"
   });
   return Nav;
 });

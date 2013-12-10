@@ -17,17 +17,26 @@ header .nav .item:first-child{margin-left:35px}
 header .nav .hamburger{float:right;margin:6px 20px 0 0;}
 header .nav .hamburger .bun{float:left;margin-right:3px;height:7px;width:7px;-webkit-border-radius:7px;border-radius:7px;border:2px solid #2790b0}
 header .nav .placeHolder{display:none;position:relative;top:11px;margin-left:61px;width:20px;height:20px;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);background:#fcfcfc;-webkit-box-shadow:inset 0 0 1px #ccc;box-shadow:inset 0 0 1px #ccc}
-#body{float:left;width:65%}
+#body{float:left;}
+#body.narrow{width:65%}
+#body.wide{width:100%}
 #aside{float:right;width:200px;background:#fff;padding-left:20px;color:#333;font-size:.9em;}
 #aside .userPic{height:50px;width:50px;-webkit-border-radius:5px;border-radius:5px}
-.page{width:98%;margin:0 auto;}
-.page .section{float:left;width:100%;margin:20px 0}
-.dashBox{font-size:1.8em;float:left;padding:37px 51px;cursor:pointer;color:#333;text-align:center;font-family:'ProximaNova';-webkit-border-radius:2px;border-radius:2px;}
+#aside .logout{border:1px solid #e4e4e4;float:left;padding:10px 28px;background:rgba(39,144,176,0.8);margin:10px 0;color:#fff;cursor:pointer;-webkit-border-radius:3px;border-radius:3px;border-bottom:4px solid #2790b0}
+.signUpForm,.signInForm{width:270px;margin:50px auto;background:#fcfcfc;padding:20px;-webkit-box-shadow:inset 0 0 1px #ccc;box-shadow:inset 0 0 1px #ccc;-webkit-border-radius:3px;border-radius:3px;}
+.signUpForm .input,.signInForm .input{background:#fff;border:1px solid #e4e4e4}
+.page{width:96%;margin:10px auto;}
+.page .section{float:left;width:100%;margin:0 0 40px}
+.dashBox{font-size:1.8em;float:left;padding:37px 51px;cursor:pointer;color:#333;text-align:center;font-family:'ProximaNova';-webkit-border-radius:3px;border-radius:3px;}
 .dashBox.info{background:#fff;padding:15px 38px;-webkit-box-shadow:0 0 1px #999;box-shadow:0 0 1px #999;margin-right:10px;line-height:1.3em;}
 .dashBox.info .amount{font-family:'ProximaNovaBold'}
 .dashBox.add{background:rgba(148,186,101,0.65);color:#fff;}
 .dashBox.add:hover{background:rgba(148,186,101,0.95)}
-.sessionBox{background:rgba(210,108,34,0.65);float:left;color:#fff;padding:25px 75px;font-size:1.2em;cursor:pointer;border-bottom:4px solid rgba(210,108,34,0.95);-webkit-border-radius:2px;border-radius:2px}
-.newClient a{display:block;margin-left:30px;float:left;padding:14px 47px 10px;background:rgba(115,115,115,0.75);color:#f4f4f4;-webkit-border-radius:2px;border-radius:2px;cursor:pointer;border-bottom:4px solid rgba(115,115,115,0.95)}
-.clientsTable{clear:both;float:left;margin-top:25px}
-.input{background:#f1f1f1;border:none;padding:20px 10px;margin:8px 0;width:250px;outline:none;font-size:1.2em;display:block}
+.sessionBox{background:rgba(210,108,34,0.65);float:left;color:#fff;padding:25px 75px;font-size:1.2em;cursor:pointer;border-bottom:4px solid rgba(210,108,34,0.95);-webkit-border-radius:3px;border-radius:3px}
+.newClient a{display:block;margin-left:30px;float:left;padding:14px 47px 10px;background:rgba(115,115,115,0.75);color:#f4f4f4;-webkit-border-radius:3px;border-radius:3px;cursor:pointer;border-bottom:4px solid rgba(115,115,115,0.95)}
+.clientsTable{clear:both;width:100%;float:left;margin-top:25px}
+table{width:100%;}
+table th{text-align:left;padding:0 0 10px 10px}
+table td{border-bottom:1px solid #e4e4e4;padding:12px 10px}
+.submit{background:#e4e4e4;border:none;padding:20px 0;margin:8px 0;width:270px;outline:none;font-size:1.2em;display:block;cursor:pointer;border-bottom:4px solid #ccc;color:#2790b0;-webkit-border-radius:3px;border-radius:3px}
+.input{background:#fcfcfc;border:1px solid #e4e4e4;padding:20px 10px;margin:8px 0;width:250px;outline:none;font-size:1.2em;display:block;-webkit-border-radius:3px;border-radius:3px}

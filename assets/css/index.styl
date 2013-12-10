@@ -4,7 +4,7 @@ $grayBorder = #e4e4e4;
 $blue = #2790B0;
 $green = rgba(148,186,101, .65);
 $greenHover = rgba(148,186,101, .95);
-$borderRadius = 2px;
+$borderRadius = 3px;
 
 // Custom Fonts
 
@@ -129,7 +129,12 @@ header
 
 #body
   float:left;
-  width:65%;
+
+  &.narrow
+    width:65%;
+  
+  &.wide
+    width:100%;
 
 #aside
   float:right;
@@ -144,14 +149,38 @@ header
     width:50px;
     border-radius:5px;
 
+  .logout
+    border: 1px solid #e4e4e4;
+    float: left;
+    padding: 10px 28px;
+    background: rgba(39,144,176,.8)
+    margin: 10px 0;
+    color:#fff;
+    cursor:pointer;
+    border-radius:$borderRadius;
+    border-bottom:4px solid $blue;
+
+.signUpForm
+.signInForm
+  width: 270px;
+  margin: 50px auto;
+  background: #fcfcfc;
+  padding: 20px;
+  box-shadow: inset 0px 0px 1px #ccc;
+  border-radius: 3px;
+
+  .input
+    background:#fff;
+    border:1px solid #e4e4e4;
+
 .page
-  width:98%;
-  margin:0 auto;
+  width:96%;
+  margin:10px auto;
 
   .section
     float:left;
     width:100%;
-    margin:20px 0;
+    margin:0 0 40px;
 
 .dashBox
   font-size: 1.8em;
@@ -206,16 +235,43 @@ header
 
 .clientsTable
   clear: both;
+  width:100%;
   float: left;
   margin-top: 25px;
 
-.input
-  background: #f1f1f1;
+table
+  width: 100%;
+
+  th
+    text-align:left;
+    padding:0 0 10px 10px;
+  
+  td
+    border-bottom: 1px solid #e4e4e4;
+    padding: 12px 10px;
+
+.submit
+  background: #e4e4e4;
   border: none;
+  padding: 20px 0;
+  margin: 8px 0;
+  width: 270px;
+  outline: none;
+  font-size: 1.2em;
+  display: block;
+  cursor:pointer;
+  border-bottom:4px solid #ccc;
+  color:$blue;
+  border-radius:$borderRadius;
+
+.input
+  background: #fcfcfc;
+  border: 1px solid #e4e4e4;
   padding: 20px 10px;
   margin: 8px 0;
   width: 250px;
   outline: none;
   font-size: 1.2em;
   display: block;
+  border-radius:$borderRadius;
 
